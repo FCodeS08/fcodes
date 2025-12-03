@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Database Learning Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    .box {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+        margin: 5px 0;
+        padding: 8px 15px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<h1>Learn About Databases</h1>
+
+<div class="box">
+    <h2>What is a Database & SQL?</h2>
+    <button onclick="toggleSection('dbDefinition')">Show / Hide</button>
+    <p id="dbDefinition" class="hidden">
+        A <strong>database</strong> is an organized collection of structured information, or data, usually stored electronically and accessed using a database management system (DBMS).
+		A <strong>SQL</strong> is a standardized programming language designed for managing and manipulating relational databases, stands for Structured Query Language.
+    </p>
+</div>
+
+<div class="box">
+    <h2>Types of Databases</h2>
+    <button onclick="toggleSection('dbTypes')">Show / Hide</button>
+    <ul id="dbTypes" class="hidden">
+        <li><strong>Relational Databases</strong> (MySQL, PostgreSQL, SQL Server)</li>
+        <li><strong>NoSQL Databases</strong> (MongoDB, Redis)</li>
+        <li><strong>Graph Databases</strong> (Neo4j)</li>
+        <li><strong>Cloud Databases</strong> (Firebase, AWS DynamoDB)</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>Mini Quiz</h2>
+    <button onclick="askQuestion()">Start Quiz</button>
+    <p id="quizResult"></p>
+</div>
+
+<script>
+    // Toggle visibility
+    function toggleSection(id) {
+        const section = document.getElementById(id);
+        section.classList.toggle("hidden");
+    }
+
+    // Simple quiz
+    function askQuestion() {
+        let answer = prompt("What does SQL stand for?");
+        let result = document.getElementById("quizResult");
+
+        if (!answer) {
+            result.innerHTML = "Quiz cancelled.";
+            return;
+        }
+
+        answer = answer.toLowerCase().trim();
+
+        if (answer === "structured query language") {
+            result.innerHTML = "✅ Correct! SQL = Structured Query Language.";
+        } else {
+            result.innerHTML = "❌ Incorrect. The correct answer is: Structured Query Language.";
+        }
+    }
+</script>
+
+</body>
+</html>
